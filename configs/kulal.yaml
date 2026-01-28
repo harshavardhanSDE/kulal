@@ -1,0 +1,28 @@
+version: "1.0"
+
+# Where should Kulal listen?
+server:
+  port: 8080
+
+# Where should Kulal send the cleaned data?
+destination:
+  url: "http://localhost:3000/api/ingest"
+  rate_limit: 50 # requests per second
+
+sources:
+  - id: "github-integration"
+    path: "/hooks/github"
+    secret: "env:GITHUB_SECRET" # Verifies HMAC signature
+    pipeline:
+      # 1. Condition: Only process merged PRs
+      filter: |
+        .action == "closed" and .pull_request.merged == true
+      
+      # 2. Transform: Simplify the JSON
+      transform: |
+        {
+          "event": "pr_merged",
+          "repo": .repository.full_name,
+          "author": .pull_request.user.login,
+          "merged_at": .pull_request.merged_at
+        }
