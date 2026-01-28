@@ -1,4 +1,4 @@
-# 🪈 Kulal (Pipe)
+# Kulal (Pipe)
 
 > **The Universal Reliability Layer for your Webhooks.**
 > *Ingest. Buffer. Transform. Deliver.*
@@ -13,7 +13,7 @@ It absorbs traffic spikes, guarantees delivery via persistent queuing, and norma
 
 ---
 
-## 💥 The Problem
+## The Problem
 
 Building webhook integrations is painful:
 
@@ -21,7 +21,7 @@ Building webhook integrations is painful:
 2. **Spikes:** A viral marketing campaign triggers 10k webhooks/sec, crashing your database.
 3. **Chaos:** Every integration sends data in a different weird format.
 
-## 🛡️ The Kulal Solution
+## The Kulal Solution
 
 Run `kulal` in front of your API. It accepts the request immediately, saves it to disk, and reliably pushes it to you at a pace you can handle.
 
@@ -29,19 +29,19 @@ Run `kulal` in front of your API. It accepts the request immediately, saves it t
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-* **🔌 Universal Receiver:** Listens for webhooks from any source (Stripe, Shopify, Custom).
-* **💾 Durable Buffer:** Writes every request to a local SQLite WAL. Zero data loss if the process crashes.
-* **🧠 Logic Pipeline:** Filter and Transform payloads using `JQ` syntax before they reach your app.
-* **🚦 Smart Dispatch:**
+* **Universal Receiver:** Listens for webhooks from any source (Stripe, Shopify, Custom).
+* **Durable Buffer:** Writes every request to a local SQLite WAL. Zero data loss if the process crashes.
+* **Logic Pipeline:** Filter and Transform payloads using `JQ` syntax before they reach your app.
+* **Smart Dispatch:**
   * **Rate Limiting:** Protect your backend from "Thundering Herds."
   * **Auto-Retries:** Exponential backoff (5s, 30s, 5m) if your server returns 500.
-* **🕵️ Dead Letter UI:** View and replay failed events via a built-in dashboard.
+* **Dead Letter UI:** View and replay failed events via a built-in dashboard.
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 ### 1. Install
 
